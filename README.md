@@ -10,6 +10,15 @@ LAN only.
 **0.1.0.0** — built against the Jellyfin 10.9 API floor (`net8.0`,
 `targetAbi` 10.9.0.0), so one build loads on Jellyfin 10.9 through 12.x.
 
+## What's in this build
+
+Build `fdfda404` (2026-11-17) — the build live on MUNI, with the queue,
+playlist, and sticky work from the private repo's PRs #13–#22: reflection /
+stage fix, queue tap-jump / reorder arrows / drag-out remove, no text select
+on queue rows, artist tiles + ▶ Album labels + Clear Queue, Clear-queue
+stopped behavior, Play Album appends, Playlists load / save + Clear moved,
+Albums grid tap, sticky view / Sort by / Floating, sticky queue.
+
 ## Download
 
 - **Zip (easiest):** `MUNICombCoverFlow_0.1.0.0.zip` — the DLL + `meta.json`
