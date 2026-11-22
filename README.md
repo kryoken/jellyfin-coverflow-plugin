@@ -7,14 +7,18 @@ LAN only.
 
 ## Version
 
-**0.2.0.0** — built against the Jellyfin 10.9 API floor (`net8.0`,
+**0.2.1.0** — built against the Jellyfin 10.9 API floor (`net8.0`,
 `targetAbi` 10.9.0.0), so one build loads on Jellyfin 10.9 through 12.x.
 
 ## What's in this build
 
-Build `6a4e3226` (2026-11-21) — the build live on MUNI, with everything
-since the 0.1.0.0 build `fdfda404` (PRs #13–#22):
+Build `6e35dc2d` (2026-11-21) — the build live on MUNI, with everything
+since the 0.2.0.0 build `6a4e3226` (PRs #54–#60):
 
+- **Album back page + slider** — tap the art and it slides right to reveal
+  a back page (Overview, Tags, band art) while the track rows slide out to
+  fit it; the card stretches to the album's own bottom, and scrolls
+  invisibly (with a fade) only when the text is longer than the album.
 - **Visualizer** — five views (Flow, Particles, Wave, Geometry, Deep Space).
   Burning stars, a morphing hexagon skin, and a Deep Space view: a NASA
   deep-space image as the background with a glowing sun (the Geometry view)
@@ -30,13 +34,14 @@ since the 0.1.0.0 build `fdfda404` (PRs #13–#22):
   the queue keeps its own art per row.
 - **Queue fixes** — Clear + reload now stops the old track, shuffle never
   disturbs the queue you built, and a re-queue failure is said out loud
-  instead of swallowed silently.
+  instead of swallowed silently, and a restored queue keeps each row's
+  album art.
 - **Lockfile fix** — `npm ci` works (the build is reproducible from a clean
   checkout).
 
 ## Download
 
-- **Zip (easiest):** `MUNICombCoverFlow_0.2.0.0.zip` — the DLL + `meta.json`
+- **Zip (easiest):** `MUNICombCoverFlow_0.2.1.0.zip` — the DLL + `meta.json`
   in one file. Download it, unzip it, and install the two files inside.
 - **Individual files:** `Jellyfin.Plugin.CoverFlow.dll` and `meta.json` —
   download them one at a time if you prefer.
@@ -48,27 +53,27 @@ since the 0.1.0.0 build `fdfda404` (PRs #13–#22):
    - `%ProgramData%\Jellyfin\Server\plugins` (service / tray install)
    - `%LocalAppData%\jellyfin\plugins` (direct / user install)
 2. Inside the plugins folder, make a folder called `MUNICombCoverFlow`,
-   then inside that a folder called `0.2.0.0`.
+   then inside that a folder called `0.2.1.0`.
 3. Put `Jellyfin.Plugin.CoverFlow.dll` and `meta.json` into
-   `plugins\MUNICombCoverFlow\0.2.0.0\`.
+   `plugins\MUNICombCoverFlow\0.2.1.0\`.
 4. Restart Jellyfin (tray icon > Restart, or Dashboard > Restart).
 5. Confirm: Dashboard > Plugins > My Plugins — MUNIComb CoverFlow
-   should show as Active, version 0.2.0.0.
+   should show as Active, version 0.2.1.0.
 6. Open the plugin page from the Dashboard, flip through your albums,
    open one, and play a track.
 
 ## Install (Linux)
 
-Same files, same layout: `<jellyfin data dir>/plugins/MUNICombCoverFlow/0.2.0.0/`
-(typically `/var/lib/jellyfin/plugins/MUNICombCoverFlow/0.2.0.0/`),
+Same files, same layout: `<jellyfin data dir>/plugins/MUNICombCoverFlow/0.2.1.0/`
+(typically `/var/lib/jellyfin/plugins/MUNICombCoverFlow/0.2.1.0/`),
 then `sudo systemctl restart jellyfin.service`.
 
 ## Notes
 
-- The plugin is a prototype at 0.2.0.0. It reads your existing music
+- The plugin is a prototype at 0.2.1.0. It reads your existing music
   library and cover art; it does not change your library, your cover art,
   or Jellyfin's player.
 - If the plugin does not show up after a restart, it is in the wrong
   folder, or your Jellyfin is older than 10.9.
-- Upgrading from 0.1.0.0: install the new files into a fresh `0.2.0.0`
-  folder and remove the old `0.1.0.0` folder, then restart Jellyfin.
+- Upgrading from 0.2.0.0: install the new files into a fresh `0.2.1.0`
+  folder and remove the old `0.2.0.0` folder, then restart Jellyfin.
